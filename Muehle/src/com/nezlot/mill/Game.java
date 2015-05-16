@@ -1,10 +1,7 @@
 package com.nezlot.mill;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
-
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class Game extends JPanel{
 	private static final long serialVersionUID = 8941316724724333172L;
@@ -60,8 +57,7 @@ public class Game extends JPanel{
 						--stoneCountA;
 					curPlayer = !curPlayer;
 					mill = false;
-					
-					System.out.println(stoneCountA + " " + stoneCountB);
+
 					clearSelections();
 				}else
 
@@ -157,9 +153,9 @@ public class Game extends JPanel{
 		//2. vertically
 		millCount = 0;
 		d = 1;
-		int n = 0, dd = 0, sd = 0;
-		
-		if(p.x == 0 || p.x == 6)
+        int n, dd = 0, sd = 0;
+
+        if(p.x == 0 || p.x == 6)
 			d = 3;
 		if(p.x == 1 || p.x == 5)
 			d = 2;
@@ -185,12 +181,9 @@ public class Game extends JPanel{
 			else
 				break;
 		}
-		
-		if(millCount == 3)
-			return true;
 
-		return false;
-	}
+        return millCount == 3;
+    }
 
 	private void selectStonesAfterMill(){
 		int c = 0;
@@ -280,13 +273,12 @@ public class Game extends JPanel{
 	}
 
 	private Field getField(Point ko){
-		if(ko != null && ko.x >= 0 && ko.x <= 6 && ko.y >= 0 && ko.y <= 6){
-			for(int i = 0; i < fields.length; i++)
-				for(int j = 0; j < fields[i].length; j++)
-					if(fields[i][j].getX() == ko.x && fields[i][j].getY() == ko.y)
-						return fields[i][j];
-		}
-		return null;
+        if (ko != null && ko.x >= 0 && ko.x <= 6 && ko.y >= 0 && ko.y <= 6)
+            for (Field[] fie : fields)
+                for (Field f : fie)
+                    if (f.getX() == ko.x && f.getY() == ko.y)
+                        return f;
+        return null;
 	}
 
 	private Field convertCoordinates(Point click){
