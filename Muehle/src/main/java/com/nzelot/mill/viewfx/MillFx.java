@@ -22,47 +22,28 @@
  * SOFTWARE.
  ******************************************************************************/
 
-package com.nzelot.mill.view;
+package com.nzelot.mill.viewfx;
 
 import com.nzelot.mill.model.Board;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-public class Mill {
+/**
+ * @author nZeloT
+ */
+public class MillFx extends Application {
 
     public static void main(String[] args) {
-
-        JFrame window = new JFrame("Mill");
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        final Board game = new Board();
-        final BoardRenderer g = new BoardRenderer(game);
-        g.setPreferredSize(new Dimension(500, 500));
-        window.add(g);
-        g.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent e) {
-                java.awt.Point p = e.getPoint();
-                g.handleMouseClick(new com.nzelot.mill.utils.Point(p.x, p.y), e.getButton() == MouseEvent.BUTTON1);
-            }
-
-            public void mousePressed(MouseEvent e) {
-            }
-
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            public void mouseExited(MouseEvent e) {
-            }
-        });
-        window.pack();
-        window.setVisible(true);
-
+        launch(args);
     }
 
+    @Override
+    public void start(Stage stg) throws Exception {
+        stg.setOnCloseRequest(e -> System.exit(0));
+
+        stg.setScene(new Scene(new BoardRenderer(new Board()), Color.WHITE));
+        stg.show();
+    }
 }
