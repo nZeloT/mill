@@ -22,43 +22,25 @@
  * SOFTWARE.
  ******************************************************************************/
 
-package com.nzelot.mill;
+package com.nzelot.mill.utils;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import java.awt.*;
+/**
+ * @author nZeloT
+ */
+@Data
+public class Point {
+    public int x;
+    public int y;
 
-public class Field {
-    private
-    @Getter
-    int x;
-    private
-    @Getter
-    int y;
-    private
-    @Getter
-    @Setter
-    int status;
-    private
-    @Getter
-    @Setter
-    int selected;
-
-    public Field(int x, int y) {
-        super();
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public Point getPos() {
-        return new Point(x, y);
+    public Point(Point other) {
+        this.x = other.x;
+        this.y = other.y;
     }
-
-    @Override
-    public String toString() {
-        return "Field [x=" + x + ", y=" + y + ", status=" + status
-                + ", selected=" + selected + "]";
-    }
-
 }

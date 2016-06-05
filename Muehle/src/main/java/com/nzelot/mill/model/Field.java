@@ -22,43 +22,42 @@
  * SOFTWARE.
  ******************************************************************************/
 
-package com.nzelot.mill;
+package com.nzelot.mill.model;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import com.nzelot.mill.utils.Point;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Mill {
+public class Field {
 
-    public static void main(String[] args) {
+    @Getter
+    private int x;
 
-        JFrame window = new JFrame("Mill");
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    @Getter
+    private int y;
 
-        final Game g = new Game();
-        g.setPreferredSize(new Dimension(500, 500));
-        window.add(g);
-        g.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent e) {
-                g.mouseClick(e.getPoint(), e.getButton() == MouseEvent.BUTTON1);
-            }
+    @Getter
+    @Setter
+    private int status;
 
-            public void mousePressed(MouseEvent e) {
-            }
+    @Getter
+    @Setter
+    private int selected;
 
-            public void mouseReleased(MouseEvent e) {
-            }
+    public Field(int x, int y) {
+        super();
+        this.x = x;
+        this.y = y;
+    }
 
-            public void mouseEntered(MouseEvent e) {
-            }
+    public Point getPos() {
+        return new Point(x, y);
+    }
 
-            public void mouseExited(MouseEvent e) {
-            }
-        });
-        window.pack();
-        window.setVisible(true);
-
+    @Override
+    public String toString() {
+        return "Field [x=" + x + ", y=" + y + ", status=" + status
+                + ", selected=" + selected + "]";
     }
 
 }

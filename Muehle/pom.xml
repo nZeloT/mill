@@ -59,7 +59,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.nzelot.mill.Mill</mainClass>
+                            <mainClass>com.nzelot.mill.view.Mill</mainClass>
                             <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>
