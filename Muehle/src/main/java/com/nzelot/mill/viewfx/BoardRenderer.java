@@ -143,19 +143,19 @@ public class BoardRenderer extends Pane {
                             edgeSize / 8d - 2 * edgeSize / 80d);
                 }
 
-                g.setLineWidth(1);
-                g.setStroke(Color.LIMEGREEN);
-                Point p1 = new Point(
-                        dx + (int) ((f.getX() + 0.5d) * edgeSize / 8d + edgeSize / 80d),
-                        dy + (int) ((f.getY() + 0.5d) * edgeSize / 8d + edgeSize / 80d)
-                );
-
-                Point p2 = new Point(
-                        p1.x + (int) (edgeSize / 8d - 2 * edgeSize / 80d),
-                        p1.y + (int) (edgeSize / 8d - 2 * edgeSize / 80d)
-                );
-
-                g.strokeRect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
+//                g.setLineWidth(1);
+//                g.setStroke(Color.LIMEGREEN);
+//                Point p1 = new Point(
+//                        dx + (int) ((f.getX() + 0.5d) * edgeSize / 8d + edgeSize / 80d),
+//                        dy + (int) ((f.getY() + 0.5d) * edgeSize / 8d + edgeSize / 80d)
+//                );
+//
+//                Point p2 = new Point(
+//                        p1.x + (int) (edgeSize / 8d - 2 * edgeSize / 80d),
+//                        p1.y + (int) (edgeSize / 8d - 2 * edgeSize / 80d)
+//                );
+//
+//                g.strokeRect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
             }
         }
 

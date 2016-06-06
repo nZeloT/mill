@@ -42,6 +42,7 @@ public class MillFx extends Application {
     @Override
     public void start(Stage stg) throws Exception {
         stg.setOnCloseRequest(e -> System.exit(0));
+        stg.setTitle("Mill");
 
         stg.setScene(new Scene(new BoardRenderer(new Board()), Color.WHITE));
         stg.show();
